@@ -1,0 +1,79 @@
+@import url('http://fonts.cdnfonts.com/css/kirsty-2');
+
+
+.bg-home {
+    width: 100vw;
+    min-height: calc(100vh - 64px);
+    /* Função para calcular o tamanho do Home com base no tamanho da tela e do Navbar */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   background-image: url('src/assets/img/background.jpg');
+}
+
+.card {
+    width: 400px;
+    height: 45vh;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    background: rgba(184, 233, 134, 0.25);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+}
+
+.card-title {
+
+    color: #F2F2F2;
+    text-shadow: black 1px 1px;
+    font-family: 'Kirsty', sans-serif !important;
+    font-size: 50px !important;
+}
+
+
+label {
+    font-style: italic;
+    color: white !important;
+    font-size: 14px !important;
+}
+
+form {
+    width: 300px;
+    height: 500px;
+}
+
+.text1 {
+
+    font-family: 'Kirsty', sans-serif !important;
+    color: #262626 !important;
+    font-size: 20px !important;
+}
+
+.btnCadastro {
+
+    text-decoration: none !important;
+    color: #262626;
+
+}
+
+.form-input {
+    width: 100%;
+    color: #262626;
+
+}
+
+.form-btn {
+    background-color: #2E5902 !important;
+    color: #F2F2F2 !important;
+    justify-content: center !important;
+    display: flex !important;
+    font-family: 'Kirsty', sans-serif !important;
+    font-size: 20px !important;
+
+}
