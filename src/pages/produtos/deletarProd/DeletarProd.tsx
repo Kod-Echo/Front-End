@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Typography, Button, Card, CardActions, CardContent } from "@material-ui/core"
 import { Box } from '@mui/material';
-import './DeletarPostagem.css';
+import './DeletarProd.css';
 import { useNavigate, useParams } from 'react-router-dom'
 import useLocalStorage from 'react-use-localstorage';
 import Produto from '../../../models/Produto';
@@ -16,37 +16,45 @@ function DeletarProduto() {
     useEffect(() => {
         if (token == "") {
             alert("Você precisa estar logado")
-            navigate("/login")
+            navigate("/login");
 
         }
-    }, [token])
+    }, [token]);
 
     useEffect(() => {
         if (id !== undefined) {
-            findById(id)
+            findById(id);
         }
-    }, [id])
+    }, [id]);
 
     async function findById(id: string) {
         buscaId(`/produtos/${id}`, setProds, {
             headers: {
-                'Authorization': token
-            }
-        })
+                'Authorization': token,
+            },
+        });
     }
 
     function sim() {
-        navigate('/prods')
-        deleteId(`/produtos/${id}`, {
-            headers: {
-                'Authorization': token
-            }
-        });
-        alert('Produto deletado com sucesso');
+        navigate("/produtos");
+
+        try {
+            deleteId(`/produtos/${id}`, {
+                headers: {
+                    'Authorization': token,
+                },
+            });
+            alert("Produto deletado com sucesso");
+        } catch (error) {
+            alert("Erro ao deletar");
+
+        }
+
+
     }
 
     function nao() {
-        navigate('/prods')
+        navigate("/produtos");
     }
 
     return (

@@ -14,19 +14,13 @@ function CadastroProd() {
     const [categorias, setCategorias] = useState<Categoria[]>([])
     const [token, setToken] = useLocalStorage('token');
 
-    useEffect(() => {
-        if (token == "") {
-            alert("Você precisa estar logado.")
-            navigate("/login")
-        }
-    }, [token])
 
     const [categoria, setCategoria] = useState<Categoria>(
         {
             id: 0,
-            tipo:'',
+            tipo: '',
             descricao: ''
-        })
+        });
 
 
     const [produto, setProduto] = useState<Produto>({
@@ -36,8 +30,16 @@ function CadastroProd() {
         preco: 0,
         foto: '',
         estoque: 0,
-        categoria:  null
-    })
+        categoria: null
+    });
+
+    useEffect(() => {
+        if (token == "") {
+            alert("Você precisa estar logado.");
+            navigate("/login")
+        }
+    }, [token]);
+
 
     useEffect(() => {
         setProduto({
@@ -52,22 +54,22 @@ function CadastroProd() {
         if (id !== undefined) {
             findByIdProduto(id)
         }
-    }, [id])
+    }, [id]);
 
     async function getCategorias() {
-        await busca("/categorias", setCategorias, {
+        await busca(`/categorias`, setCategorias, {
             headers: {
-                'Authorization': token
+                'Authorization': token,
             }
-        })
+        });
     }
 
     async function findByIdProduto(id: string) {
         await buscaId(`produtos/${id}`, setProduto, {
             headers: {
-                'Authorization': token
-            }
-        })
+                'Authorization': token,
+            },
+        });
     }
 
     function updatedProduto(e: ChangeEvent<HTMLInputElement>) {
@@ -75,33 +77,50 @@ function CadastroProd() {
             ...produto,
             [e.target.name]: e.target.value,
             categoria: categoria
-        })
+        });
     }
 
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault()
 
         if (id !== undefined) {
-            await put(`/produtos`, produto, setProduto, {
-                headers: {
-                    'Authorization': token
-                }
-            })
-            alert('produto atualizado com sucesso');
-        } else {
-            post(`/produtos`, produto, setProduto, {
-                headers: {
-                    'Authorization': token
-                }
 
-            })
-            alert('produto cadastrado com sucesso');
+            try {
+                await put(`/produtos`, produto, setProduto, {
+                    headers: {
+                        'Authorization': token,
+                    },
+                });
+
+            alert("produto atualizado com sucesso");
+            } catch (error) {
+
+                alert("Erro, por favor verifique a quantidade minima de caracteres");
+            }
+
+        } else {
+
+            try {
+                console.log(produto)
+                await post(`/produtos`, produto, setProduto, {
+                    headers: {
+                        'Authorization': token,
+                    },
+
+                });
+
+                alert("produto cadastrado com sucesso");
+            }
+            catch (error) {
+                alert("Erro, por favor verifique a quantidade minima de caracteres");
+            }
         }
-        back()
+
+        back();
     }
 
     function back() {
-        navigate('/prods')
+        navigate('/produtos');
 
     }
 
@@ -121,7 +140,7 @@ function CadastroProd() {
                     <Select
                         labelId="demo-simple-select-helper-label"
                         id="demo-simple-select-helper"
-                        onChange={(e) => buscaId(`/categoria/${e.target.value}`, setCategoria, {
+                        onChange={(e) => buscaId(`/categorias/${e.target.value}`, setCategoria, {
                             headers: {
                                 'Authorization': token
                             }

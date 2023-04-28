@@ -1,6 +1,5 @@
 import { AppBar, Toolbar, Typography } from '@material-ui/core'
 import { Link, useNavigate } from 'react-router-dom';
-
 import './Navbar.css'
 import useLocalStorage from 'react-use-localstorage';
 import { Box } from '@mui/material';
@@ -31,16 +30,6 @@ function Navbar() {
                         Home
                     </Typography>
                 </Link>
-                <Link to='/contato' className='text-none' >
-                    <Typography variant="h6" className='nav-titulo'>
-
-                    </Typography>
-                </Link>
-                <Link to='/login' className='text-none' >
-                    <Typography variant="h6" className='nav-titulo'>
-                        Login
-                    </Typography>
-                </Link>
 
                 <Link to='/formularioCategoria' className='text-none' >
                     <Typography variant="h6" className='nav-titulo'>
@@ -58,13 +47,14 @@ function Navbar() {
                         Categorias
                     </Typography>
                 </Link>
+
                 <Link to='/produtos' className='text-none' >
                     <Typography variant="h6" className='nav-titulo'>
                         Produtos
                     </Typography>
                 </Link>
                 <Box className='text-none' onClick={goLogout}>
-                    <Typography variant="h6" color="inherit">
+                    <Typography variant="h6" className='nav-titulo'>
                         logout
                     </Typography>
                 </Box>

@@ -1,6 +1,21 @@
 .text-decorator-none {
   text-decoration: none;
 }
- .cardlista{
-  margin-top: 60px;
- }
+ 
+
+.container-listcateg,.container-listprod{
+
+  padding-top: 20px;
+
+
+}
+
+.card-categ,.card-prod{
+  width: 350px !important;
+  border-radius: 50px !important;
+  background: rgb(127, 161, 94) !important;
+  backdrop-filter: blur(10px)!important;
+  -webkit-backdrop-filter: blur(15px)!important;
+  border-radius: 10px!important;
+  border: 1px solid rgba(255, 255, 255, 0.18)!important;
+}

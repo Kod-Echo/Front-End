@@ -4,7 +4,7 @@ import Produto from '../../../models/Produto';
 import { busca } from '../../../services/Service'
 import { Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
 import { Box } from '@mui/material';
-import './ListaPostagem.css';
+import './ListaProdutos.css';
 import useLocalStorage from 'react-use-localstorage';
 import { useNavigate } from 'react-router-dom'
 
@@ -22,25 +22,26 @@ function ListaProduto() {
     }, [token])
 
     async function getProd() {
-        await busca("/produtos", setProds, {
+        await busca(`/produtos`, setProds, {
             headers: {
-                'Authorization': token
-            }
-        })
+                'Authorization': token,
+            },
+        });
     }
 
     useEffect(() => {
 
         getProd()
 
-    }, [prods.length])
+    },
+     [prods.length])
 
     return (
         <>
             {
                 prods.map(prod => (
-                    <Box m={2} >
-                        <Card variant="outlined">
+                    <Box m={2} className='container-listprod' >
+                        <Card variant="outlined" className='card-prod'>
                             <CardContent>
                                 <Typography color="textSecondary" gutterBottom>
                                     Produtos
@@ -60,7 +61,11 @@ function ListaProduto() {
 
                                     <Link to={`/formularioProduto/${prod.id}`} className="text-decorator-none" >
                                         <Box mx={1}>
-                                            <Button variant="contained" className="marginLeft" size='small' color="primary" >
+                                            <Button
+                                                variant="contained"
+                                                className="marginLeft"
+                                                size='small'
+                                                color="primary" >
                                                 atualizar
                                             </Button>
                                         </Box>
