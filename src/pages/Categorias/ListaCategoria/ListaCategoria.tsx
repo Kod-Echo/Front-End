@@ -30,53 +30,56 @@ function ListaCategoria() {
 
   useEffect(() => {
     getCategoria();
-  }, [categorias.length]);
+  },
+
+    [categorias.length]);
 
   return (
     <>
-      {categorias.map((categoria) => (
-        <Box m={2} >
-          <Card variant="outlined" className="cardlista">
-            <CardContent >
-              <Typography color="textSecondary" gutterBottom>
-                Categoria
-              </Typography>
-              <Typography variant="h5" component="h2">
-                {categoria.tipo}
-              </Typography>
-            </CardContent>
-            <CardActions>
-              <Box display="flex" justifyContent="center" mb={1.5}>
-                <Link
-                  to={`/formularioCategoria/${categoria.id}`}
-                  className="text-decorator-none"
-                >
-                  <Box mx={1}>
-                    <Button
-                      variant="contained"
-                      className="marginLeft"
-                      size="small"
-                      color="primary"
-                    >
-                      Atualizar
-                    </Button>
-                  </Box>
-                </Link>
-                <Link
-                  to={`/deletarCategoria/${categoria.id}`}
-                  className="text-decorator-none"
-                >
-                  <Box mx={1}>
-                    <Button variant="contained" size="small" color="secondary">
-                      Deletar
-                    </Button>
-                  </Box>
-                </Link>
-              </Box>
-            </CardActions>
-          </Card>
-        </Box>
-      ))}
+      {
+        categorias.map((categoria) => (
+
+          <Box m={2} className="container-listcateg">
+            <Card variant="outlined" className="card-categ">
+              <CardContent >
+                <Typography color="textSecondary" gutterBottom>
+                  Categoria
+                </Typography>
+                <Typography variant="h6" component="h2">
+                  {categoria.tipo}
+                </Typography>
+                <Typography component="h2">
+                  {categoria.descricao}
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <Box display="flex" justifyContent="center" mb={1.5}>
+                  <Link to={`/formularioCategoria/${categoria.id}`}
+                    className="text-decorator-none"
+                  >
+                    <Box mx={1}>
+                      <Button
+                        variant="contained"
+                        className="marginLeft"
+                        size="small"
+                        color="primary" >
+                        Atualizar
+                      </Button>
+                    </Box>
+                  </Link>
+                  <Link to={`/deletarCategoria/${categoria.id}`}
+                    className="text-decorator-none">
+                    <Box mx={1}>
+                      <Button variant="contained" size="small" color="secondary">
+                        Deletar
+                      </Button>
+                    </Box>
+                  </Link>
+                </Box>
+              </CardActions>
+            </Card>
+          </Box>
+        ))}
     </>
   );
 }

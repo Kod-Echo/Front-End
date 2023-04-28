@@ -1,14 +1,12 @@
 @import url('http://fonts.cdnfonts.com/css/kirsty-2');
 
 
-.bg-home {
-    width: 100vw;
-    min-height: calc(100vh - 64px);
-    /* Função para calcular o tamanho do Home com base no tamanho da tela e do Navbar */
+.cont-login {
+
     display: flex;
     justify-content: center;
     align-items: center;
-   background-image: url('src/assets/img/background.jpg');
+    background-image: url('src/assets/img/background.jpg');
 }
 
 .card {
@@ -43,22 +41,26 @@ label {
     font-size: 14px !important;
 }
 
-form {
+.form-login {
     width: 300px;
     height: 500px;
+    justify-content: center;    
+   
 }
 
 .text1 {
 
     font-family: 'Kirsty', sans-serif !important;
-    color: #262626 !important;
+    color: #F2F2F2 !important;
     font-size: 20px !important;
 }
 
 .btnCadastro {
 
-    text-decoration: none !important;
-    color: #262626;
+    color: #F2F2F2;
+    font-family: 'Kirsty', sans-serif !important;
+
+
 
 }
 

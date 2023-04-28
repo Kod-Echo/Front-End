@@ -10,6 +10,7 @@ function CadastroCategoria() {
   let navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
   const [token, setToken] = useLocalStorage("token");
+
   const [categoria, setCategoria] = useState<Categoria>({
 
     id: 0,
@@ -58,9 +59,10 @@ function CadastroCategoria() {
 
         alert("Categoria atualizada com sucesso!");
       } catch (error) {
-        console.log(`Error: ${error}`);
+
         alert("Erro, por favor verifique a quantidade minima de caracteres");
       }
+
     } else {
       try {
         await post(`/categorias`, categoria, setCategoria, {
@@ -70,8 +72,10 @@ function CadastroCategoria() {
         });
 
         alert("Categoria cadastrada com sucesso");
-      } catch (error) {
-        console.log(`Error: ${error}`);
+
+      }
+      catch (error) {
+
         alert("Erro, por favor verifique a quantidade minima de caracteres");
       }
     }

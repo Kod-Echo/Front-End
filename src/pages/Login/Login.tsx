@@ -49,18 +49,18 @@ function Login() {
     }
 
     return (
-        <Grid container className="bg-home" >
+        <Grid container className="cont-login" >
             <Grid item xs={12} sm={12}>
-                <Box display="flex" justifyContent="center" alignItems="center" height="90vh">
+                <Box display="flex" justifyContent="center" alignItems="center" height="100vh">
                     <Box className="card" >
                         <Typography className='card-title' variant="h4" align="center" >
                             Login
                         </Typography>
 
-                        <form onSubmit={onSubmit}>
-                            <TextField value={userLogin.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} className='form-input' variant='outlined' id="usuario" name='usuario' label="Usuário" margin='normal' fullWidth />
+                        <form onSubmit={onSubmit} className='form-login'>
+                            <TextField value={userLogin.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} className='form-input'  id="usuario" name='usuario' label="Usuário" margin='normal' fullWidth />
 
-                            <TextField value={userLogin.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} className='form-input' variant='outlined' id="senha" name='senha' type="password" label="Senha" margin='normal' fullWidth />
+                            <TextField value={userLogin.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} className='form-input'  id="senha" name='senha' type="password" label="Senha" margin='normal' fullWidth />
 
                             <Button className="form-btn" type='submit' variant='contained'>
                                 Acessar
