@@ -1,80 +1,32 @@
 import { Box } from '@mui/material';
-import { Typography, Grid, } from '@material-ui/core';
-
-
+import { Typography, Grid, TextField  } from '@material-ui/core';
+import { ChangeEvent } from 'react';
 
 import './Contato.css'
 
+async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
+    e.preventDefault()
+}
 
 function Contato() {
 
     return (
 
 
-        <Grid className="contact" id="contact">
-            <Grid className="container">
-                <Box className="heading text-center">
-                    <Typography variant="h3" gutterBottom color="textPrimary" component="h3" align="center"> Contate a gente!</Typography>
-                    <Typography> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil, commodi? Cumque expedita laboriosam facere neque corrupti a voluptas! Aliquam delectus cum natus repudiandae iusto autem eius recusandae? Asperiores, quas ea. </Typography>
-                </Box>
-                <Box className="row">
-                    <Box className="col-md-5">
-                        <Box className="title">
-                            <Typography variant="h3" gutterBottom color="textPrimary" component="h3" align="center"> Detalhes de contatos</Typography>
-                            <Typography> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil, commodi? Cumque expedita laboriosam facere neque corrupti a voluptas! Aliquam delectus cum natus repudiandae iusto autem eius recusandae? Asperiores, quas ea. </Typography>
-                        </Box>
-                        <Box className="content">
-                            <Box className="info">
-                                <i className="fas fa-mobile-alt"></i>
-                                <h4 className="d-inline-block">PHONE :
-
-                                    <span>+12457836913 , +12457836913</span></h4>
+        <Grid container className="contato">
+            <Grid item xs={12} sm={12} className='container-cad' >
+                <Box display="flex" justifyContent="center" alignItems="center" height="100vh">
+                    <Box className='cardForm' >
+                    <form onSubmit={onSubmit} className='all'>
+                    <Typography  variant='h3' align='center' className='text'> Entre em contato com a gente! </Typography>
+                            <Box className='form' alignItems={'center'}>
+                            <TextField id="nome" label='Nome' variant='outlined' name='nome' margin='normal' fullWidth />
+                            <TextField  type="email" id="email" label='Email' variant='outlined' name='email' margin='normal' fullWidth />
+                            <TextField  type="tel" id="telefone" label='Telefone' variant='outlined' name='telefone' margin='normal' fullWidth />
+                            <TextField  type="message" id="mesnagem" label='Mensagem' variant='outlined' name='mensagem' margin='normal' fullWidth />
                             </Box>
-                            <Box className="info">
-                                <i className="far fa-envelope"></i>
-                                <h4 className="d-inline-block">EMAIL :
-
-                                    <span>example@info.com</span></h4>
-                            </Box>
-                            <Box className="info">
-                                <i className="fas fa-map-marker-alt"></i>
-                                <h4 className="d-inline-block">ADDRESS :
-                            </h4>
-                            </Box>
-                        </Box>
-                    </Box>
-
-                    <Box className="col-md-7">
-
-                        <form>
-                            <label htmlFor="name">Nome:</label>
-                            <input
-                                type="text"
-                                id="name"
-                                name="name"
-                            />
-
-                            <label htmlFor="email">Email:</label>
-                            <input
-                                type="email"
-                                id="email"
-                                name="email"
-                            />
-
-                            <label htmlFor="phone">Telefone:</label>
-                            <input
-                                type="tel"
-                                id="phone"
-                                name="phone"
-                            />
-
-                            <label htmlFor="message">Mensagem:</label>
-                            <textarea
-                                id="message"
-                                name="message"
-                            ></textarea>
-
-                            <button type="submit">Enviar</button>
+                            <button className='but' type="submit">Enviar</button>
+                            <Typography className='info'>Para mais informações, dúvidas ou sugestões, visite nossos canais disponíveis.</Typography>       
                         </form>
                     </Box>
                 </Box>

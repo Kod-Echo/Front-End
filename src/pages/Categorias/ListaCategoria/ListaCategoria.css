@@ -7,15 +7,27 @@
 
   padding-top: 20px;
 
-
 }
 
 .card-categ,.card-prod{
-  width: 350px !important;
+  width: 220px !important;
+  height: auto !important;
   border-radius: 50px !important;
-  background: rgb(127, 161, 94) !important;
+  background-color: #d9d0b0 !important;
   backdrop-filter: blur(10px)!important;
   -webkit-backdrop-filter: blur(15px)!important;
   border-radius: 10px!important;
   border: 1px solid rgba(255, 255, 255, 0.18)!important;
+}
+
+.button-delcateg,.button-delprod {
+ background-color: #cda56d !important;
+}
+
+.button-atucateg,.button-atudelprod {
+  background-color: #cda56d !important;
+ }
+
+ .fonte{
+  font-family: Verdana, sans-serif !important;
 }

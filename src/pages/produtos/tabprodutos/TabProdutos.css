@@ -4,9 +4,24 @@
     font-family: Verdana, sans-serif !important;
 }
 .tabs{
-    background-color: #275b00a4!important;
+    background-color:  #2A4009!important;
 }
 .fontText{
     color: lavender!important;
     font-family: Verdana, sans-serif !important;
+    text-align: justify !important;
+
 }
+
+.flex-container {
+    display: flex;
+    justify-content: space-around;
+    text-align: justify;
+ }
+
+ .flex-container > div{
+    margin: 10px;
+    padding: 20px;
+    font-size: 20px;
+ }
+ 
