@@ -40,10 +40,10 @@ function ListaProduto() {
         <>
             {
                 prods.map(prod => (
-                    <Box m={3} className='container-listprod' >
+                    <Box display="flex" flexWrap="wrap" m={3} className='container-listprod' >
                         <Card variant="outlined" className='card-prod'>
                             <CardContent>
-                                <Typography variant="h5" component="h2">
+                                <Typography variant="h5" component="h2" className='fonte'>
                                     {prod.nome}
                                 </Typography>
 
@@ -51,12 +51,12 @@ function ListaProduto() {
                                     <img src={prod.foto} />
                                 </Typography>
 
-                                <Typography variant="h5" component="h2">
+                                <Typography variant="h5" component="h2" className='fonte'>
                                     R${prod.preco}
                                 </Typography>
 
-                                <Typography variant="body2" component="p">
-                                    Catergoria: <b/>
+                                <Typography variant="body2" component="p" className='fonte'>
+                                    Categoria: <b/>
                                     {prod.categoria?.descricao}
                                 </Typography>
                                 
@@ -69,7 +69,7 @@ function ListaProduto() {
                                             <Button
                                                 variant="contained"
                                                 className="marginLeft button-atucateg"
-                                                size='small'>                                                atualizar
+                                                size='small'>atualizar
                                             </Button>
                                         </Box>
                                     </Link>

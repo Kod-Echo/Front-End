@@ -21,9 +21,13 @@
 }
 
 .button-delcateg,.button-delprod {
- background-color: #E26027 !important;
+ background-color: #cda56d !important;
 }
 
 .button-atucateg,.button-atudelprod {
   background-color: #cda56d !important;
  }
+
+ .fonte{
+  font-family: Verdana, sans-serif !important;
+}

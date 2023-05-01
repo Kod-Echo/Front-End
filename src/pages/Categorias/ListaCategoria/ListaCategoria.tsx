@@ -43,12 +43,12 @@ function ListaCategoria() {
             <Card variant="outlined" className="card-categ">
               <CardContent >
 
-                <Typography variant="h6" component="h2">
+                <Typography variant="h6" component="h2" className='fonte'>
                   Categoria: <b/>
                   {categoria.tipo}
                 </Typography>
 
-                <Typography component="h2">
+                <Typography component="h2" className='fonte'>
                   Descrição: <b />
                   {categoria.descricao}
                 </Typography>
