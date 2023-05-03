@@ -6,8 +6,9 @@ import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { TokenState } from '../../store/tokens/tokensReducer';
 import TabProdutosInicial from '../tabProdutosInicial/TabProdutosInicial';
-import Carrosel from '../../componentes/carrosel/swiper';
 import Search from '../../componentes/search/Search';
+import Carrosel from '../../componentes/carrosel/swiper';
+import Carrosel2 from '../../componentes/carrosel/Swiper2';
 
 
 function PaginaInicial() {
@@ -32,7 +33,7 @@ function PaginaInicial() {
 
             <Grid item xs={12} className='caixa-titulo' container direction='row'>
                 <Box justifyContent="start" className=' sub-inicial' >
-                    <img src="src/assets/img/home.jpg" height='85px' width='150px' alt="" className='icone' />
+                    <img src="src/assets/img/icone.png" height='100' width='100' alt="" className='icone' />
                 </Box>
                 <Box className='search'>
                     <Search />
@@ -50,8 +51,13 @@ function PaginaInicial() {
             </Grid>
 
             <Grid item xs={12} className='caixa-titulo' container direction='row'>
-            </Grid>
-            <TabProdutosInicial />
+            </Grid>               
+            <TabProdutosInicial /> 
+
+            <Box className='box-comentarios'><Typography variant='h5' className='comentarios'> O que nossos clientes falam da gente? </Typography>        
+            </Box>  
+            <Carrosel2/>
+            
 
 
         </>

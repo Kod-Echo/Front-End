@@ -2,16 +2,15 @@
 
 
 .titulo-prod-inicial {
-    font-family: 'TT Drugs Trial', sans-serif;
+    font-family: 'TT Drugs Trial', sans-serif  !important;
     font-size: 15px !important;
-    font-weight: bold !important;
   }
 
   .card-prod-inicial{
     width: auto !important;
     height: auto !important;
     border-radius:20px !important;
-    background: #d9d0b0a8 !important;
+    background: #d9d0b0 !important;
     border-radius: 10px;
     border-radius: 8px;
     flex-wrap: wrap;
@@ -41,7 +40,7 @@
 
 .botao-comprar{
   background-color: #cfad7dc9 !important;
-  margin-top: 2%;
+  margin-top: 2%  !important;
   color:maroon;
   font-family: 'TT Drugs Trial', sans-serif !important;
   font-weight: bold !important;

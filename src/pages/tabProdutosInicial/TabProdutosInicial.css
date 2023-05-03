@@ -5,7 +5,7 @@
     color:#00341a!important;
 }
 .tabs{
-    background-color:  #285B00!important;
+    background-color:  #cfad7dff !important;
     font-size: 14px !important;
     
 }
@@ -30,12 +30,8 @@
  }
 
  .tab-text {
-    font-size: 18px !important;
-    font-weight: bold !important;
+    font-size: 20px !important;
     font-family: 'Kirsty', sans-serif !important;
-    color:white !important;   
-    text-shadow: black 1px 1px 1px !important;
-
-   
+    color:rgb(27, 27, 27)!important;     
 
  }

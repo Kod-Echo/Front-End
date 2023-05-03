@@ -16,16 +16,16 @@ export default class Carrosel extends React.Component {
                     navigation={true}
                     pagination={{ clickable: true }} className='swiper-container' >
                     <SwiperSlide className='slide-item'>
-                        <img src="src/assets/img/ecobagHome.png" alt="" />
+                        <img src="src/assets/img/ecobagHome.png" alt=""/>
                     </SwiperSlide>
                     <SwiperSlide className='slide-item'>
-                        <img src="src/assets/img/ecobagHome.png" alt="" />
+                        <img src="src/assets/img/sabonetepromo.gif" alt="" />
                     </SwiperSlide>
                     <SwiperSlide className='slide-item'>
-                    <img src="src/assets/img/ecobagHome.png" alt="" />
+                    <img src="src/assets/img/impacto.gif" alt="" />
                     </SwiperSlide>
                     <SwiperSlide className='slide-item'>
-                    <img src="src/assets/img/ecobagHome.png" alt="" />
+                    <img src="src/assets/img/frete.gif" alt="" />
                     </SwiperSlide></Swiper>
             </Grid>
         )
