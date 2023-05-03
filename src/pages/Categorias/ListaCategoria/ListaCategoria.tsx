@@ -1,21 +1,34 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Card, CardActions, CardContent, Button, Typography } from "@material-ui/core";
+import { Card, CardActions, CardContent, Button, Typography, Grid } from "@material-ui/core";
 import { Box } from "@mui/material";
 import Categoria from "../../../models/Categoria";
-import useLocalStorage from "react-use-localstorage";
 import { useNavigate } from "react-router-dom";
 import { busca } from "../../../services/Service";
 import "./ListaCategoria.css";
+import { useSelector } from "react-redux";
+import { TokenState } from "../../../store/tokens/tokensReducer";
+import { toast } from "react-toastify";
 
 function ListaCategoria() {
   const [categorias, setCategorias] = useState<Categoria[]>([]);
-  const [token, setToken] = useLocalStorage("token");
+  const token = useSelector<TokenState, TokenState["tokens"]>(
+    (state) => state.tokens
+  );
   let navigate = useNavigate();
 
   useEffect(() => {
     if (token == "") {
-      alert("Você precisa estar logado");
+      toast.error('Você precisa estar logado', {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: false,
+        theme: "colored",
+        progress: undefined,
+      });
       navigate("/login");
     }
   }, [token]);
@@ -35,31 +48,29 @@ function ListaCategoria() {
     [categorias.length]);
 
   return (
-    <>
+    <>  
+
+    <Grid container direction='row'> 
       {
         categorias.map((categoria) => (
-
-          <Box m={2} className="container-listcateg">
+          <Box m={2} className="container-listcateg" >
             <Card variant="outlined" className="card-categ">
               <CardContent >
-
-                <Typography variant="h6" component="h2" className='fonte'>
-                  Categoria: <b/>
+                <Typography variant="h6" className='fonte'>
+                  Categoria: <b />
                   {categoria.tipo}
                 </Typography>
-
-                <Typography component="h2" className='fonte'>
+                <Typography component="h2" className='desc'>
                   Descrição: <b />
                   {categoria.descricao}
                 </Typography>
-
               </CardContent>
               <CardActions>
                 <Box display="flex" justifyContent="center" mb={1.5}>
                   <Link to={`/formularioCategoria/${categoria.id}`}
                     className="text-decorator-none"
                   >
-                    <Box mx={1}>
+                    <Box mx={1} >
                       <Button
                         variant="contained"
                         className="marginLeft button-atucateg"
@@ -81,6 +92,7 @@ function ListaCategoria() {
             </Card>
           </Box>
         ))}
+        </Grid>
     </>
   );
 }

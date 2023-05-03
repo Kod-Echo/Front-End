@@ -2,10 +2,37 @@ import { Typography, Grid, } from '@material-ui/core';
 import { Box } from '@mui/material';
 import './Home.css';
 import TabProdutos from '../produtos/tabprodutos/TabProdutos';
+import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { toast } from 'react-toastify';
+import { TokenState } from '../../store/tokens/tokensReducer';
 
 
 
 function Home() {
+
+    let navigate = useNavigate();
+    const token = useSelector<TokenState, TokenState["tokens"]>(
+        (state) => state.tokens
+      );
+    
+    useEffect(() => {
+      if (token == "") {
+        toast.error('Você precisa estar logado', {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: false,
+            theme: "colored",
+            progress: undefined,
+        });
+        navigate("/login")
+  
+      }
+  }, [token])
     return (
         <>
             <Grid container direction="row" justifyContent="center" alignItems="center" className='caixa'>

@@ -2,20 +2,33 @@ import React, { useEffect, useState } from "react";
 import { Card, CardActions, CardContent, Button, Typography } from "@material-ui/core";
 import { Box } from "@mui/material";
 import { useNavigate, useParams } from "react-router-dom";
-import useLocalStorage from "react-use-localstorage";
 import { buscaId, deleteId } from "../../../services/Service";
 import Categoria from "../../../models/Categoria";
 import "./DeletaCategoria.css";
+import { useSelector } from "react-redux";
+import { TokenState } from "../../../store/tokens/tokensReducer";
+import { toast } from "react-toastify";
 
 function DeletarCategoria() {
   let navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
-  const [token, setToken] = useLocalStorage("token");
+  const token = useSelector<TokenState, TokenState["tokens"]>(
+    (state) => state.tokens
+  );
   const [categoria, setCategoria] = useState<Categoria>();
 
   useEffect(() => {
     if (token == "") {
-      alert("Você precisa estar logado");
+      toast.error('Você precisa estar logado', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        theme: "colored",
+        progress: undefined,
+      });
       navigate("/login");
     }
   }, [token]);
@@ -44,10 +57,27 @@ function DeletarCategoria() {
         },
       });
 
-      alert("Categoria deletada com sucesso!");
+      toast.success('Categoria deletada com sucesso', {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: false,
+        theme: "colored",
+        progress: undefined,
+      });
     } catch (error) {
-      alert("Erro ao deletar");
-    }
+      toast.error('Erro ao deletar', {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: false,
+        theme: "colored",
+        progress: undefined,
+      });    }
   }
 
   function nao() {
@@ -56,14 +86,14 @@ function DeletarCategoria() {
 
   return (
     <>
-      <Box m={2}>
-        <Card variant="outlined">
+      <Box m={2} className="container-delete">
+        <Card className="card-delete">
           <CardContent>
             <Box justifyContent="center">
-              <Typography color="textSecondary" gutterBottom>
+              <Typography color="textSecondary" gutterBottom className="fonte">
                 Deseja deletar qual categoria?
               </Typography>
-              <Typography color="textSecondary">
+              <Typography color="textSecondary" className="fonte">
                 {categoria?.tipo}
               </Typography>
             </Box>

@@ -4,12 +4,15 @@
     font-family: Verdana, sans-serif !important;
 }
 .tabs{
-    background-color:  #2A4009!important;
+    background-color:  #285B00!important;
+    font-size: 20px !important;
+    
 }
 .fontText{
     color: lavender!important;
-    font-family: Verdana, sans-serif !important;
+    font-family: 'TT Drugs Trl Cnd', sans-serif !important;
     text-align: justify !important;
+    font-size: 20px !important;
 
 }
 
@@ -24,4 +27,11 @@
     padding: 20px;
     font-size: 20px;
  }
+
+ .text-label {
+    font-size: 23px !important;
+    font-family: 'Kirsty', sans-serif !important;
+
+ }
+ 
  

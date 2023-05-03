@@ -3,21 +3,39 @@ import { Link, useNavigate } from 'react-router-dom';
 import './Navbar.css'
 import useLocalStorage from 'react-use-localstorage';
 import { Box } from '@mui/material';
+import { toast } from 'react-toastify';
+import { addToken } from '../../store/tokens/actions';
+import { useDispatch, useSelector } from 'react-redux';
+import { TokenState } from '../../store/tokens/tokensReducer';
 
 function Navbar() {
 
-    const [token, setToken] = useLocalStorage('token');
+    const token = useSelector<TokenState, TokenState["tokens"]>(
+        (state) => state.tokens
+    );
     let navigate = useNavigate();
+    const dispatch = useDispatch();
 
     function goLogout() {
-        setToken('')
-        alert("Usuário deslogado")
-        navigate('/login')
+        dispatch(addToken(''));
+        toast.info('Usuário deslogado', {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: false,
+            theme: "colored",
+            progress: undefined,
+        });
+        navigate('/homeinicial')
     }
-    return (
 
+    var navbarComponent;
 
-        <AppBar className='nv-menu' >
+    if (token !== "") {
+
+        navbarComponent = <AppBar className='nv-menu' >
             <Toolbar className='container-menu' variant="dense">
                 <Link to='/home' className='text-none'>
                     <Typography variant="h6" className='nav-titulo'>
@@ -53,6 +71,12 @@ function Navbar() {
                         Produtos
                     </Typography>
                 </Link>
+
+                <Link to='/contato' className='text-none' >
+                    <Typography variant="h6" className='nav-titulo'>
+                        Contato
+                    </Typography>
+                </Link>
                 <Box className='text-none' onClick={goLogout}>
                     <Typography variant="h6" className='nav-titulo'>
                         logout
@@ -61,6 +85,12 @@ function Navbar() {
 
             </Toolbar>
         </AppBar>
+    }
+
+    return (
+
+        <> {navbarComponent}</>
+
 
     );
 
@@ -69,3 +99,4 @@ function Navbar() {
 }
 
 export default Navbar;
+

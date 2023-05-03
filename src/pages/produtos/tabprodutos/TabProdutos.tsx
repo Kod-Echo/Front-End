@@ -15,8 +15,8 @@ function TabProdutos() {
             <TabContext value={value}>
                 <AppBar position="relative">
                     <Tabs centered className='tabs' onChange={handleChange}>
-                        <Tab label="Nossos Produtos" value="1" />
-                        <Tab label="Nossa Cultura" value="2" />
+                        <Tab label="Nossos Produtos" value="1" className='text-label' />
+                        <Tab label="Nossa Cultura" value="2" className='text-label' />
                     </Tabs>
                 </AppBar>
                 <TabPanel value="1" >
