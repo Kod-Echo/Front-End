@@ -18,6 +18,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Provider } from 'react-redux';
 import store from './store/store';
 import PaginaInicial from './pages/paginaInicial/PaginaInicial';
+import Cart from './pages/Cart/Cart';
 
 
 function App() {
@@ -59,6 +60,8 @@ function App() {
             <Route path="/deletarProduto/:id" element={<DeletarProd />} />
 
             <Route path="/contato" element={<Contato />} />
+
+            <Route path="/carrinho" element={<Cart />} />
 
 
           </Routes>

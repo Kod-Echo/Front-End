@@ -7,6 +7,7 @@ import { toast } from 'react-toastify';
 import { addToken } from '../../store/tokens/actions';
 import { useDispatch, useSelector } from 'react-redux';
 import { TokenState } from '../../store/tokens/tokensReducer';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 
 function Navbar() {
 
@@ -77,6 +78,13 @@ function Navbar() {
                         Contato
                     </Typography>
                 </Link>
+
+                <Link to='/carrinho' className='text-none' >
+                    <Typography variant="h6" className='nav-titulo'>
+                        <ShoppingCartIcon style={{ fontSize: 30, color: "white" }} />
+                    </Typography>
+                </Link>
+
                 <Box className='text-none' onClick={goLogout}>
                     <Typography variant="h6" className='nav-titulo'>
                         logout

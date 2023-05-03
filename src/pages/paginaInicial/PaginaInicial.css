@@ -5,7 +5,8 @@
     
     background-color: #cfad7dff !important;    
     color:saddlebrown!important;
-    font-family: 'TT Drugs Trial', sans-serif!important;    
+    font-family: 'TT Drugs Trial', sans-serif!important;  
+    margin-top: 40% !important; 
 
 }
 
@@ -19,6 +20,7 @@
 
 .sub-inicial{
     padding-left: 15% !important;
+    
 }
 
 .titulo-inicial{
@@ -32,19 +34,27 @@
     font-family: 'TT Drugs Trial', sans-serif !important;
     font-size: 22px !important;
     margin-right: 1% !important;
+    margin-top: 2% !important;
+
+}
+
+.comentarios{
+    font-family: 'TT Drugs Trial', sans-serif !important;
+    font-size: 22px !important;
+    background-color: rgb(207, 163, 101) ;
+    padding: 1%;
+    text-align: center !important;
+    margin-bottom: 2% !important;
+ 
 }
 
 .search{
     padding-left: 10px;
+    margin-top: 2% !important;
 }
 
 .box-carrosel{
- padding-top: 1% !important;
  justify-content: center !important;
  text-align: center !important;
 
-}
-
-.icone{
-    padding-bottom: 15%;
 }
