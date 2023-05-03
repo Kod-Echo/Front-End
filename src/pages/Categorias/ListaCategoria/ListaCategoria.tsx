@@ -42,15 +42,17 @@ function ListaCategoria() {
           <Box m={2} className="container-listcateg">
             <Card variant="outlined" className="card-categ">
               <CardContent >
-                <Typography color="textSecondary" gutterBottom>
-                  Categoria
-                </Typography>
-                <Typography variant="h6" component="h2">
+
+                <Typography variant="h6" component="h2" className='fonte'>
+                  Categoria: <b/>
                   {categoria.tipo}
                 </Typography>
-                <Typography component="h2">
+
+                <Typography component="h2" className='fonte'>
+                  Descrição: <b />
                   {categoria.descricao}
                 </Typography>
+
               </CardContent>
               <CardActions>
                 <Box display="flex" justifyContent="center" mb={1.5}>
@@ -60,9 +62,8 @@ function ListaCategoria() {
                     <Box mx={1}>
                       <Button
                         variant="contained"
-                        className="marginLeft"
-                        size="small"
-                        color="primary" >
+                        className="marginLeft button-atucateg"
+                        size="small">
                         Atualizar
                       </Button>
                     </Box>
@@ -70,7 +71,7 @@ function ListaCategoria() {
                   <Link to={`/deletarCategoria/${categoria.id}`}
                     className="text-decorator-none">
                     <Box mx={1}>
-                      <Button variant="contained" size="small" color="secondary">
+                      <Button variant="contained" size="small" className="button-delcateg">
                         Deletar
                       </Button>
                     </Box>

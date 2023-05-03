@@ -1,6 +1,7 @@
-import { Typography, Grid,} from '@material-ui/core';
+import { Typography, Grid, } from '@material-ui/core';
 import { Box } from '@mui/material';
 import './Home.css';
+import TabProdutos from '../produtos/tabprodutos/TabProdutos';
 
 
 
@@ -20,7 +21,9 @@ function Home() {
                 <Grid item xs={6} >
                     <img src="src/assets/img/home.jpg" alt="home" width="850px" height="500px" />
                 </Grid>
-
+                <Grid item xs={12}>
+                    <TabProdutos />
+                </Grid>
             </Grid>
 
         </>
