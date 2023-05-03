@@ -1,15 +1,18 @@
 import React, { useState, ChangeEvent, useEffect } from 'react';
 import { Grid, Box, Typography, TextField, Button } from '@material-ui/core';
 import { Link, useNavigate } from 'react-router-dom';
-import useLocalStorage from 'react-use-localstorage';
 import { login } from '../../services/Service';
 import UserLogin from '../../models/UserLogin';
 import './Login.css';
+import { useDispatch } from 'react-redux';
+import { addToken } from '../../store/tokens/actions';
+import { toast } from 'react-toastify';
 
 function Login() {
 
-    let history = useNavigate();
-    const [token, setToken] = useLocalStorage('token');
+    let navigate = useNavigate();
+    const dispatch = useDispatch();
+    const [token, setToken] = useState('');
     const [userLogin, setUserLogin] = useState<UserLogin>(
         {
             id: 0,
@@ -31,7 +34,8 @@ function Login() {
 
     useEffect(() => {
         if (token != '') {
-            history('/home')
+            dispatch(addToken(token));
+            navigate('/home')
         }
     }, [token])
 
@@ -41,10 +45,27 @@ function Login() {
         try {
             await login(`/usuarios/logar`, userLogin, setToken)
 
-            alert('Usuario logado com sucesso!')
+            toast.success('Usuário logado com sucesso!', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+            });
         } catch (error) {
-            alert('Dados do usuario insconsistentes. Erro ao logar!')
-
+            toast.error('Dados do usuário inconsistentes. Erro ao logar!', {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+            });
         }
     }
 
@@ -58,9 +79,9 @@ function Login() {
                         </Typography>
 
                         <form onSubmit={onSubmit} className='form-login'>
-                            <TextField value={userLogin.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} className='form-input'  id="usuario" name='usuario' label="Usuário" margin='normal' fullWidth />
+                            <TextField value={userLogin.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} className='form-input' id="usuario" name='usuario' label="Usuário" margin='normal' fullWidth />
 
-                            <TextField value={userLogin.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} className='form-input'  id="senha" name='senha' type="password" label="Senha" margin='normal' fullWidth />
+                            <TextField value={userLogin.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} className='form-input' id="senha" name='senha' type="password" label="Senha" margin='normal' fullWidth />
 
                             <Button className="form-btn" type='submit' variant='contained'>
                                 Acessar
@@ -72,7 +93,8 @@ function Login() {
                                 <Typography variant='subtitle1' gutterBottom align='center' className='text1'>Não tem uma conta?</Typography>
 
                                 <Link to='/cadastrousuario' className='btnCadastro' >
-                                    <Typography gutterBottom align='center' variant='h6' > Cadastre-se</Typography> </Link>
+                                    <Typography gutterBottom align='center' variant='h6' > Cadastre-se</Typography> 
+                                    </Link>
                             </Box>
                         </Box>
                     </Box>

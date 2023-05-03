@@ -23,7 +23,7 @@ function Contato() {
                             <TextField id="nome" label='Nome' variant='outlined' name='nome' margin='normal' fullWidth />
                             <TextField  type="email" id="email" label='Email' variant='outlined' name='email' margin='normal' fullWidth />
                             <TextField  type="tel" id="telefone" label='Telefone' variant='outlined' name='telefone' margin='normal' fullWidth />
-                            <TextField  type="message" id="mesnagem" label='Mensagem' variant='outlined' name='mensagem' margin='normal' fullWidth />
+                            <TextField  type="message" id="mensagem" label='Mensagem' variant='outlined' name='mensagem' margin='normal' fullWidth />
                             </Box>
                             <button className='but' type="submit">Enviar</button>
                             <Typography className='info'>Para mais informações, dúvidas ou sugestões, visite nossos canais disponíveis.</Typography>       

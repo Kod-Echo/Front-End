@@ -2,20 +2,34 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Produto from '../../../models/Produto';
 import { busca } from '../../../services/Service'
-import { Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
+import { Card, CardActions, CardContent, Button, Typography, Grid } from '@material-ui/core';
 import { Box } from '@mui/material';
 import './ListaProdutos.css';
-import useLocalStorage from 'react-use-localstorage';
 import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/tokensReducer';
+import { toast } from 'react-toastify';
 
 function ListaProduto() {
     const [prods, setProds] = useState<Produto[]>([])
-    const [token, setToken] = useLocalStorage('token');
+    const token = useSelector<TokenState, TokenState["tokens"]>(
+        (state) => state.tokens
+    );
+
     let navigate = useNavigate();
 
     useEffect(() => {
         if (token == "") {
-            alert("Você precisa estar logado")
+            toast.error('Você precisa estar logado', {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+            });
             navigate("/login")
 
         }
@@ -37,29 +51,29 @@ function ListaProduto() {
         [prods.length])
 
     return (
-        <>
+        <> <Grid container direction='row' >
             {
                 prods.map(prod => (
                     <Box display="flex" flexWrap="wrap" m={3} className='container-listprod' >
-                        <Card variant="outlined" className='card-prod'>
+                        <Card className='card-prod'>
                             <CardContent>
-                                <Typography variant="h5" component="h2" className='fonte'>
+                                <Typography variant="h5" className='fonte'>
                                     {prod.nome}
                                 </Typography>
 
-                                <Typography variant="h6" component="h2">
+                                <Typography variant="h6">
                                     <img src={prod.foto} />
                                 </Typography>
 
-                                <Typography variant="h5" component="h2" className='fonte'>
+                                <Typography variant="h5" className='fonte'>
                                     R${prod.preco}
                                 </Typography>
 
-                                <Typography variant="body2" component="p" className='fonte'>
-                                    Categoria: <b/>
+                                <Typography variant="body2" component="p" className='desc'>
+                                    Categoria: <b />
                                     {prod.categoria?.descricao}
                                 </Typography>
-                                
+
                             </CardContent>
                             <CardActions>
                                 <Box display="flex" justifyContent="center" mb={1.5}>
@@ -86,6 +100,7 @@ function ListaProduto() {
                     </Box>
                 ))
             }
+        </Grid>
         </>
     )
 }

@@ -6,16 +6,30 @@ import { useNavigate, useParams } from 'react-router-dom'
 import useLocalStorage from 'react-use-localstorage';
 import Produto from '../../../models/Produto';
 import { buscaId, deleteId } from '../../../services/Service';
+import { toast } from 'react-toastify';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/tokensReducer';
 
 function DeletarProduto() {
     let navigate = useNavigate();
     const { id } = useParams<{ id: string }>();
-    const [token, setToken] = useLocalStorage('token');
+    const token = useSelector<TokenState, TokenState["tokens"]>(
+        (state) => state.tokens
+      );
     const [prod, setProds] = useState<Produto>()
 
     useEffect(() => {
         if (token == "") {
-            alert("Você precisa estar logado")
+            toast.error('Você precisa estar logado', {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+            });
             navigate("/login");
 
         }
@@ -44,10 +58,27 @@ function DeletarProduto() {
                     'Authorization': token,
                 },
             });
-            alert("Produto deletado com sucesso");
+            toast.success('Produto deletado com sucesso', {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+            });
         } catch (error) {
-            alert("Erro ao deletar");
-
+            toast.error('Erro ao deletar!!', {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+            });
         }
 
 
@@ -60,7 +91,7 @@ function DeletarProduto() {
     return (
         <>
             <Box m={2}>
-                <Card variant="outlined" >
+                <Card className='card-delete' >
                     <CardContent>
                         <Box justifyContent="center">
                             <Typography color="textSecondary" gutterBottom>
