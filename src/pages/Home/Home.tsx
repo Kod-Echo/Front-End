@@ -11,7 +11,6 @@ import Search from '../../componentes/search/Search';
 import Carrosel from '../../componentes/carrosel/Swiper';
 
 
-
 function Home() {
 
     let navigate = useNavigate();
