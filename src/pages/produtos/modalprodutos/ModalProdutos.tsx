@@ -1,7 +1,8 @@
 import React from 'react';
 import './ModalProdutos.css';
-import { makeStyles, Theme, createStyles, Box, Button, Modal } from '@material-ui/core';
+import { makeStyles, Theme, createStyles, Button } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
+import { Box, Modal } from '@mui/material';
 
 function getModalStyle() {
     const top = 50;

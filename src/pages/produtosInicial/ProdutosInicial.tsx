@@ -1,11 +1,8 @@
-import { Box, Button, Card, CardActions, Grid, Typography } from "@material-ui/core";
+import { Button, Card, CardActions, Grid, Typography } from "@material-ui/core";
 import { CardContent, } from "@mui/material";
 import './ProdutosInicial.css'
 import { Link } from 'react-router-dom'
-
-
-
-
+import { Box } from '@mui/material';
 
 function ProdutosInicial() {
 
