@@ -8,7 +8,7 @@ import { useEffect } from 'react';
 import { toast } from 'react-toastify';
 import { TokenState } from '../../store/tokens/tokensReducer';
 import Search from '../../componentes/search/Search';
-import Carrosel from '../../componentes/carrosel/Swiper';
+// import Carrosel from '../../componentes/carrosel/Swiper';
 
 
 function Home() {
@@ -52,7 +52,7 @@ function Home() {
             </Grid>
 
             <Grid alignItems="center" className='box-carrosel' justifyContent='center'>
-                <Carrosel />
+                {/* <Carrosel /> */}
             </Grid>
 
             <Grid item xs={12} className='caixa-titulo' container direction='row'>

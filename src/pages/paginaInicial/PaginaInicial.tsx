@@ -7,8 +7,8 @@ import { useEffect } from 'react';
 import { TokenState } from '../../store/tokens/tokensReducer';
 import TabProdutosInicial from '../tabProdutosInicial/TabProdutosInicial';
 import Search from '../../componentes/search/Search';
-import Carrosel2 from '../../componentes/carrosel/Swiper2';
-import Carrosel from '../../componentes/carrosel/Swiper';
+// import Carrosel2 from '../../componentes/carrosel/Swiper2';
+// import Carrosel from '../../componentes/carrosel/Swiper';
 
 
 
@@ -48,7 +48,7 @@ function PaginaInicial() {
             </Grid>
 
             <Grid alignItems="center" className='box-carrosel' justifyContent='center'>
-                <Carrosel />
+                {/* <Carrosel /> */}
             </Grid>
 
             <Grid item xs={12} className='caixa-titulo' container direction='row'>
@@ -57,7 +57,7 @@ function PaginaInicial() {
 
             <Box className='box-comentarios'><Typography variant='h5' className='comentarios'> O que nossos clientes falam da gente? </Typography>
             </Box>
-            <Carrosel2 />
+            {/* <Carrosel2 /> */}
 
 
 
