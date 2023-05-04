@@ -70,7 +70,7 @@ function ListaProduto() {
                                 </Typography>
 
                                 <Typography variant="body2" component="p" className='desc'>
-                                    Categoria: <b />
+                        
                                     {prod.categoria?.descricao}
                                 </Typography>
 
