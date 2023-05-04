@@ -11,6 +11,7 @@ import Carrosel2 from '../../componentes/carrosel/Swiper2';
 import Carrosel from '../../componentes/carrosel/Swiper';
 
 
+
 function PaginaInicial() {
 
     let navigate = useNavigate();
